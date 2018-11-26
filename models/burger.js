@@ -1,5 +1,7 @@
 const orm = require("../config/orm");
 
+module.exports = function(sequelize, )
+
 const burger = {
 
     allBurgers: function (cb) {
