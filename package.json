@@ -1,0 +1,11 @@
+{
+  "name": "sequelizedburger",
+  "version": "1.0.0",
+  "description": "A full-stack web-app for your burger cravings (with Sequelize).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
