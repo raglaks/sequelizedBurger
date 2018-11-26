@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-//routes go here
+require("./routes/html-routes.js")(app);
 
 // const exphbs = require("express-handlebars");
 
@@ -17,7 +17,9 @@ app.use(express.static("public"));
 // app.set("view engine", "handlebars");
 
 db.sequelize.sync({ force: true }).then(function () {
+
     app.listen(PORT, function () {
         console.log("App listening on PORT " + PORT);
     });
+
 });
