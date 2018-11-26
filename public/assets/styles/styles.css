@@ -1,0 +1,12 @@
+body {
+
+    text-transform: capitalize;
+    font-family: 'Bangers', cursive;
+
+}
+
+.burgb {
+
+    background-image: url("/assets/images/back.png");
+
+}
