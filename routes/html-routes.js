@@ -16,7 +16,7 @@ module.exports = function (app) {
 
             data.forEach(element => {
 
-                if (element.dataValues.devoured === 1) {
+                if (element.dataValues.devoured === 1 || element.dataValues.devoured === true) {
 
                     resObj.eaten.push(element.dataValues);
 

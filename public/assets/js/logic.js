@@ -4,9 +4,20 @@ $(document).ready(function () {
 
         event.preventDefault();
 
-        $.ajax({
+        let resObj = {
 
+            clickID: this.id
 
+        }
+
+        $.ajax("/update/", {
+
+            type: "PUT",
+            data: resObj
+
+        }).then(function (data) {
+
+            location.reload();
 
         });
 
@@ -29,9 +40,7 @@ $(document).ready(function () {
 
         }).then(function (result) {
 
-            console.log(`Successfully added burger.`);
-
-            console.log(result);
+            location.reload();
 
         });
 

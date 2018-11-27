@@ -1,10 +1,10 @@
 const db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
 
     app.get("/api/burgers/", function (req, res) {
 
-        db.burgers.findAll({}).then(function(data) {
+        db.burgers.findAll({}).then(function (data) {
 
             res.json(data);
 
@@ -24,6 +24,30 @@ module.exports = function(app) {
 
         });
 
-    })
+    });
+
+    app.put("/update/", function (req,res) {
+
+        console.log(req.body);
+
+        db.burgers.update({
+
+            devoured: true,
+
+        }, {
+
+            where: {
+
+                id: req.body.clickID
+
+            }
+
+        }).then(function (data) {
+
+            res.json("OK");
+
+        });
+
+    });
 
 }
