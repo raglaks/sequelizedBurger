@@ -1,12 +1,36 @@
 const db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
 
     app.get("/", function (req, res) {
 
-        db.burgers.findAll({}).then(function(data) {
+        db.burgers.findAll({}).then(function (data) {
 
-            res.render("index");
+            let resObj = {
+
+                eaten: [],
+
+                safe: []
+
+            }
+
+            data.forEach(element => {
+
+                if (element.dataValues.devoured === 1) {
+
+                    resObj.eaten.push(element.dataValues);
+
+                } else {
+
+                    resObj.safe.push(element.dataValues);
+
+                }
+
+            });
+
+            console.log(resObj);
+
+            res.render("index", resObj);
 
         });
 
