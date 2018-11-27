@@ -4,7 +4,11 @@ module.exports = function(app) {
 
     app.get("/", function (req, res) {
 
-        res.render("index");
+        db.burgers.findAll({}).then(function(data) {
+
+            res.render("index");
+
+        });
 
     });
 

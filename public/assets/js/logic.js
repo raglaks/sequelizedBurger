@@ -1,21 +1,12 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     $(".btn-danger").on("click", function (event) {
 
         event.preventDefault();
 
-        let ID = this.id;
+        $.ajax({
 
-        $.ajax("/api/burgers/" + ID, {
 
-            type: "PUT",
-            data: true
-
-        }).then(function () {
-
-            console.log("tasty");
-
-            location.reload();
 
         });
 
@@ -25,23 +16,23 @@ $(document).ready(function() {
 
         event.preventDefault();
 
-        let newBurg = {
+        let resObj = {
 
-            burger_name: $("#text").val().trim()
+            name: $("#text").val().trim()
 
         }
 
-        $.ajax("/api/burgers", {
+        $.ajax("/add/", {
 
             type: "POST",
+            data: resObj
 
-            data: newBurg
+        }).then(function (result) {
 
-        }).then(function () {
+            console.log(`Successfully added burger.`);
 
-            console.log("Added new burger.");
+            console.log(result);
 
-            location.reload();
         });
 
     });
