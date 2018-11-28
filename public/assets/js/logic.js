@@ -31,7 +31,7 @@ $(document).ready(function () {
                     burgName: burgC
 
                 }
-
+                
                 $.ajax("/customer/add/", {
 
                     type: "POST",

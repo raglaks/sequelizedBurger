@@ -7,9 +7,9 @@ module.exports = function (app) {
         let resObj = {
 
             eaten: [],
-    
+
             safe: []
-    
+
         }
 
         db.burgers.findAll({
@@ -30,19 +30,19 @@ module.exports = function (app) {
 
             });
 
-            db.customers.findAll({raw: true}).then(function (cusData) {
+            db.customers.findAll({ raw: true }).then(function (cusData) {
 
                 cusData.forEach(element => {
-    
+
                     resObj.eaten.push(element);
-    
+
                 });
-    
+
+                console.log(resObj);
+
+                res.render("index", resObj);
+
             });
-    
-            console.log(resObj);
-            
-            res.render("index", resObj);
 
         });
 
