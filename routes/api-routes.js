@@ -28,7 +28,7 @@ module.exports = function (app) {
 
     app.put("/update/", function (req,res) {
 
-        console.log(req.body);
+        let bId = req.body.clickID
 
         db.burgers.update({
 
@@ -38,13 +38,25 @@ module.exports = function (app) {
 
             where: {
 
-                id: req.body.clickID
+                id: bId
 
             }
 
-        }).then(function (data) {
+        }).then(function (bId) {
 
-            res.json("OK");
+            db.burgers.findAll({
+
+                where: {
+
+                    id: bId
+
+                }
+
+            }).then(function (data) {
+
+                res.json(data[0].name);
+    
+            });
 
         });
 

@@ -28,7 +28,7 @@ module.exports = function (app) {
 
             });
 
-            console.log(resObj);
+            //console.log(resObj);
 
             res.render("index", resObj);
 

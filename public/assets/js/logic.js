@@ -17,13 +17,29 @@ $(document).ready(function () {
 
         }).then(function (data) {
 
-            location.reload();
+            console.log(data);
+
+            // $("#results-modal").modal("toggle");
+
+            // $("#custSubmit").on("click", function (event) {
+
+            //     event.preventDefault();
+
+            //     let resObj = {
+
+            //         custName: $("#custName").val().trim()
+
+            //     }
+
+            //     console.log(resObj);
+
+            // });
 
         });
 
     });
 
-    $(".btn-primary").on("click", function (event) {
+    $("#submitBurg").on("click", function (event) {
 
         event.preventDefault();
 
@@ -47,3 +63,15 @@ $(document).ready(function () {
     });
 
 });
+
+// $("#custSubmit").on("click", function (event) {
+
+//     event.preventDefault();
+
+//     console.log(this);
+
+//     console.log($("#custName").val().trim());
+
+//     console.log($("#text").val().trim());
+
+// });

@@ -18,7 +18,18 @@ module.exports = function(sequelize, DataTypes) {
                     msg: 'The name is too long'
                 }
             }
-        }
+        },
+
+        bname: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate :{ 
+                    len: {
+                    args: [0, 50],
+                    msg: 'The name is too long'
+                }
+            }
+        },
 
     });
 

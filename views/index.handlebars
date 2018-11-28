@@ -40,6 +40,50 @@
 
             </h5>
 
+            <div id="results-modal" class="modal fade text-center" role="dialog">
+
+                <div class="modal-dialog">
+
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+
+                            <h6 class="modal-title"><strong>Who ate this burger?</strong></h6>
+
+                        </div>
+
+                        <div class="modal-body">
+
+                            <form>
+
+                                <br>
+
+                                <div class="form-group">
+
+                                    <textarea class="form-control" id="custName" rows="1" placeholder="Customer name"></textarea>
+
+                                </div>
+
+                                <button type="submit" class="btn btn-primary" id="custSubmit">Submit</button>
+
+                            </form>
+
+                            <br>
+
+                        </div>
+
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
         <div class="col-lg-5 text-center">
@@ -75,12 +119,12 @@
                 <br>
 
                 <div class="form-group">
-                    
+
                     <textarea class="form-control" id="text" rows="1" placeholder="Add a burger"></textarea>
-                    
+
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button id="submitBurg" type="submit" class="btn btn-primary">Submit</button>
 
             </form>
 
