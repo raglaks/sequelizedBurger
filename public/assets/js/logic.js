@@ -25,25 +25,33 @@ $(document).ready(function () {
 
                 event.preventDefault();
 
-                let resObj = {
+                let cName = $("#custName").val().trim();
 
-                    custName: $("#custName").val().trim(),
-                    burgName: burgC
+                if (cName == "") {
+
+                    $("#cWarn").text("CANNOT SUBMIT EMPTY STRINGS. PLEASE NAME A CUSTOMER.");
+
+                } else {
+
+                    let resObj = {
+
+                        custName: cName,
+                        burgName: burgC
+    
+                    }
+    
+                    $.ajax("/customer/add/", {
+    
+                        type: "POST",
+                        data: resObj
+            
+                    }).then(function (result) {
+            
+                        location.reload();
+            
+                    });
 
                 }
-                
-                $.ajax("/customer/add/", {
-
-                    type: "POST",
-                    data: resObj
-        
-                }).then(function (result) {
-
-                    //$("#results-modal").modal("toggle");
-        
-                    location.reload();
-        
-                });
 
             });
 
