@@ -55,22 +55,34 @@ $(document).ready(function () {
 
         event.preventDefault();
 
-        let resObj = {
+        let sName = $("#text").val().trim();
 
-            name: $("#text").val().trim()
+        if (sName == "") {
+
+            $("#warn").text("CANNOT SUBMIT EMPTY STRINGS. PLEASE NAME A BURGER.");
+
+        } else {
+
+            $("#warn").text("");
+
+            let resObj = {
+
+                name: sName
+    
+            }
+    
+            $.ajax("/add/", {
+    
+                type: "POST",
+                data: resObj
+    
+            }).then(function (result) {
+    
+                location.reload();
+    
+            });
 
         }
-
-        $.ajax("/add/", {
-
-            type: "POST",
-            data: resObj
-
-        }).then(function (result) {
-
-            location.reload();
-
-        });
 
     });
 
