@@ -2,34 +2,46 @@ const db = require("../models");
 
 module.exports = function (app) {
 
-    app.get("/", function (req, res) {
+    app.get("/index", function (req, res) {
 
-        db.burgers.findAll({}).then(function (data) {
+        let resObj = {
 
-            let resObj = {
+            eaten: [],
+    
+            safe: []
+    
+        }
 
-                eaten: [],
+        db.burgers.findAll({
 
-                safe: []
+            raw: true,
+
+            where: {
+
+                devoured: 0
 
             }
 
+        }).then(function (data) {
+
             data.forEach(element => {
 
-                if (element.dataValues.devoured === 1 || element.dataValues.devoured === true) {
-
-                    resObj.eaten.push(element.dataValues);
-
-                } else {
-
-                    resObj.safe.push(element.dataValues);
-
-                }
+                resObj.safe.push(element);
 
             });
 
-            //console.log(resObj);
+            db.customers.findAll({raw: true}).then(function (cusData) {
 
+                cusData.forEach(element => {
+    
+                    resObj.eaten.push(element);
+    
+                });
+    
+            });
+    
+            console.log(resObj);
+            
             res.render("index", resObj);
 
         });

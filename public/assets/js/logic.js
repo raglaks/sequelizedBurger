@@ -17,11 +17,11 @@ $(document).ready(function () {
 
         }).then(function (data) {
 
-            let burgC = data;
+            let burgC = data[0].name;
 
             $("#results-modal").modal("toggle");
 
-            $("#custSubmit").on("click", function (event, burgC) {
+            $("#custSubmit").on("click", function (event) {
 
                 event.preventDefault();
 
@@ -32,7 +32,18 @@ $(document).ready(function () {
 
                 }
 
-                console.log(resObj);
+                $.ajax("/customer/add/", {
+
+                    type: "POST",
+                    data: resObj
+        
+                }).then(function (result) {
+
+                    //$("#results-modal").modal("toggle");
+        
+                    location.reload();
+        
+                });
 
             });
 
@@ -65,14 +76,3 @@ $(document).ready(function () {
 
 });
 
-// $("#custSubmit").on("click", function (event) {
-
-//     event.preventDefault();
-
-//     console.log(this);
-
-//     console.log($("#custName").val().trim());
-
-//     console.log($("#text").val().trim());
-
-// });

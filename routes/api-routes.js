@@ -30,11 +30,15 @@ module.exports = function (app) {
 
         let bId = req.body.clickID
 
+        console.log(bId);
+
         db.burgers.update({
 
             devoured: true,
 
         }, {
+
+                raw: true,
 
                 where: {
 
@@ -42,9 +46,13 @@ module.exports = function (app) {
 
                 }
 
-            }).then(function (bId) {
+            }).then(function () {
+
+                console.log(bId);
 
                 db.burgers.findAll({
+
+                    raw: true,
 
                     where: {
 
@@ -54,7 +62,9 @@ module.exports = function (app) {
 
                 }).then(function (data) {
 
-                    res.json(data[0].name);
+                    console.log(bId);
+
+                    res.json(data);
 
                 });
 
@@ -69,7 +79,7 @@ module.exports = function (app) {
             cname: req.body.custName,
             bname: req.body.burgName,
 
-        }).then(function(data) {
+        }).then(function (data) {
 
             res.json(data);
 
