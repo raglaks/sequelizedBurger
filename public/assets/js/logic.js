@@ -17,23 +17,24 @@ $(document).ready(function () {
 
         }).then(function (data) {
 
-            console.log(data);
+            let burgC = data;
 
-            // $("#results-modal").modal("toggle");
+            $("#results-modal").modal("toggle");
 
-            // $("#custSubmit").on("click", function (event) {
+            $("#custSubmit").on("click", function (event, burgC) {
 
-            //     event.preventDefault();
+                event.preventDefault();
 
-            //     let resObj = {
+                let resObj = {
 
-            //         custName: $("#custName").val().trim()
+                    custName: $("#custName").val().trim(),
+                    burgName: burgC
 
-            //     }
+                }
 
-            //     console.log(resObj);
+                console.log(resObj);
 
-            // });
+            });
 
         });
 
